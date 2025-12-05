@@ -10,6 +10,6 @@ router = APIRouter(
 )
 
 # get stock data as json
-@router.get('/{symbol}/{startDate}to{endDate}s{sample}')
-def getStockData(symbol, startDate, endDate, sample):
+@router.get('/{symbol}')
+def getStockData(symbol:str, startDate:str, endDate:str, sample:str):
     return st.getStockData(symbol, startDate, endDate, sample)

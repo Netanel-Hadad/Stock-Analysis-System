@@ -12,6 +12,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
+PATH = "http://localhost:8000"
 DEFAULT_MIN_VOLUME = 0
 DEFAULT_MAX_VOLUME = 500000000
 
@@ -26,10 +27,11 @@ sample = st.selectbox("Sample:", ("D", "W", "M", "Y"))
 # view candle stick chart button
 if st.button('View'):
     # get the stock info as a json string
-    url = f"http://localhost:8000/stock/{symbol}/{startDate}to{endDate}s{sample}"
+    url = f"{PATH}/stock/{symbol}"
     headers = {'Content-Type': 'application/json'}
     format = {'key': 'value'}
-    response = requests.get(url, json=format, headers=headers)
+    params = {"startDate": startDate, "endDate": endDate, "sample": sample}
+    response = requests.get(url, headers=headers, params=params)
     # convert json string to json
     dataJson = response.json()
     # convert json to dataframe
