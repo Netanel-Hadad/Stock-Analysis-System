@@ -16,15 +16,15 @@ Built with a **Microservices-ready architecture**, separating the calculation ba
 
 ## 📂 Project Structure
 ```text
-├──Client
-│  └── main_page.py       # Frontend
-├──Server
-│  ├──server.py           # Backend
-│  ├──Routers/
-│  |  └── stock.py        # API Routes handling
+├──Client                 # Frontend
+│  └── main_page.py 
+├──Server                 # Backend
+│  ├──server.py
+│  ├──Routers             # API Routes handling
+│  |  └── stock.py        
 │  └──Repositories
 │     └── stock.py        # Data Fetching
-└── requirements.txt      # Project dependencies
+└── requirements.txt
 ````
 
 ## ⚙️ Installation & Setup
