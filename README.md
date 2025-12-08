@@ -15,7 +15,9 @@ A  full-stack web application for analyzing historical stock market data using c
 ## 📂 Project Structure
 ```text
 ├──Client                 # Frontend
-│  └── main_page.py 
+│  ├──main_page.py
+|  └──.streamlit
+|     └──config.toml
 ├──Server                 # Backend
 │  ├──server.py
 │  ├──Routers             # API Routes handling
