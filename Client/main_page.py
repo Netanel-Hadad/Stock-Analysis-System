@@ -14,8 +14,7 @@ from plotly.subplots import make_subplots
 from io import StringIO
 
 PATH = "http://localhost:8000"
-DEFAULT_MIN_VOLUME = 0
-DEFAULT_MAX_VOLUME = 500000000
+VOLUME_BAR_COLOR_RGBA = "(128,128,128,0.5)"
 
 # user screen objects
 st.title("Stock Analysis Syetem")
@@ -30,7 +29,6 @@ if st.button('View'):
     # get the stock info as a json string
     url = f"{PATH}/stock/{symbol}"
     headers = {'Content-Type': 'application/json'}
-    format = {'key': 'value'}
     params = {"startDate": startDate, "endDate": endDate, "sample": sample}
     response = requests.get(url, headers=headers, params=params)
     # convert json string to json
@@ -45,25 +43,26 @@ if st.button('View'):
                 open=data['Open'],
                 high=data['High'],
                 low=data['Low'],
-                close=data['Close'])
+                close=data['Close'],
+                name="Candlesticks")
     volumeBars = go.Bar(
                 x=data.index,
                 y=data['Volume'],
-                showlegend=False,
+                showlegend=True,
+                name="Volume",
                 marker={
-                    "color":"rgba(128,128,128,0.5)"
+                    "color":f"rgba{VOLUME_BAR_COLOR_RGBA}"
                 },
-                base=[DEFAULT_MIN_VOLUME, DEFAULT_MAX_VOLUME]
+                # setting the base range of volume values to 0 and the max value in the Volume column times 6
+                # seems like a good amount for the best chart readability
+                base=[0, data['Volume'].max()*6]
     )
-    priceLine = px.line(data, x=data.index,
-                        y=data['Close'])
 
     # combining all the charts into one figure
     fig = go.Figure(candleSticks)
     fig = make_subplots(specs=[[{"secondary_y": True}]])
     fig.add_trace(candleSticks, secondary_y=True)
     fig.add_trace(volumeBars, secondary_y=False)
-    fig.add_trace(priceLine.data[0], secondary_y=True)
     fig.update_layout(
         title="",
         height=500,
