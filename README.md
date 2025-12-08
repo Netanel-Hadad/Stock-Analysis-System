@@ -1,14 +1,12 @@
 # 📈 Stock Analysis System
-A  full-stack web application for analyzing historical stock market data.
-Built with a **Microservices-ready architecture**, separating the calculation backend from the visualization frontend.
-
+A  full-stack web application for analyzing historical stock market data using candlestick charts with volume bars.
 ## 🚀 Features
-* **Interactive UI:** Built with **Streamlit**, offering a seamless user experience with date pickers and dynamic inputs.
+* **Microservices-ready architecture**, separating the calculation backend from the visualization frontend.
+* **Interactive UI:** Built with **Streamlit**, offering a seamless user experience.
 * **High-Performance Backend:** Powered by **FastAPI** for asynchronous data processing and auto-generated API docs.
 * **Advanced Visualization:** Interactive Candlestick and Volume charts using **Plotly** (zoom, pan, hover).
 
 ## 🛠️ Tech Stack
-
 * **Frontend:** Streamlit, Plotly
 * **Backend:** FastAPI, Uvicorn
 * **Data Processing:** Pandas, NumPy
