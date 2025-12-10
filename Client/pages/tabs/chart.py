@@ -1,43 +1,14 @@
-# this is the streamlit application for viewing the stock data
+# this file is the 'Chart' tab in the Stock page,
+# which shows after getting stock information from the user, and loading its data
 
 import streamlit as st
-import datetime
-import json
-import requests
-import pandas as pd
-import matplotlib as mpl
-import matplotlib.pyplot as plt
-import matplotlib.dates as mdates
-import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
-from io import StringIO
 
-PATH = "http://localhost:8000"
-VOLUME_BAR_COLOR_RGBA = "(128,128,128,0.5)"
+VOLUME_BAR_COLOR_RGBA = "(128,128,128,0.5)" # grey
 
-# user screen objects
-st.title("Stock Analysis Syetem")
-# input objects
-symbol = st.text_input("Symbol:", placeholder="GOOG")
-startDate = st.date_input("Start Date:", datetime.date(2024, 1, 1), format="YYYY.MM.DD")
-endDate = st.date_input("End Date:",     datetime.date.today(), format="YYYY.MM.DD")
-sample = st.selectbox("Sample:", ("D", "W", "M", "Y"))
-
-# view candle stick chart button
-if st.button('View'):
-    # get the stock info as a json string
-    url = f"{PATH}/stock/{symbol}"
-    headers = {'Content-Type': 'application/json'}
-    params = {"startDate": startDate, "endDate": endDate, "sample": sample}
-    response = requests.get(url, headers=headers, params=params)
-    # convert json string to json
-    dataJson = response.json()
-    # convert json to dataframe
-    # we use StringIO because not doing so will cause a warning saying that 'Passing literal json to 'read_json' 
-    # is deprecated and will be removed in a future version. To read from a literal string, wrap it in a 'StringIO' object'
-    data = pd.read_json(StringIO(dataJson))
-
+# called from the stock page file, this will show the 'Chart' tab widgets
+def show(data):
     # creating the charts
     candleSticks = go.Candlestick(x=data.index,
                 open=data['Open'],

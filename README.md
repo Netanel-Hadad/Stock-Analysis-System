@@ -1,5 +1,6 @@
 # 📈 Stock Analysis System
 A  full-stack web application for analyzing historical stock market data using candlestick charts with volume bars.
+
 ## 🚀 Features
 * **Microservices-ready architecture**, separating the calculation backend from the visualization frontend.
 * **Interactive UI:** Built with **Streamlit**, offering a seamless user experience.
@@ -14,16 +15,24 @@ A  full-stack web application for analyzing historical stock market data using c
 
 ## 📂 Project Structure
 ```text
-├──Client                 # Frontend
-│  ├──main_page.py
-|  └──.streamlit
-|     └──config.toml
-├──Server                 # Backend
-│  ├──server.py
-│  ├──Routers             # API Routes handling
+├──Client                       # Frontend
+│  ├──app.py                    # streamlit main application
+│  ├──pages
+│  │  ├──home.py
+│  │  ├──stock.py
+│  │  ├──screener.py
+│  │  └──tabs
+│  │     ├──general.py   
+│  │     ├──chart.py     
+│  │     └──data.py               
+│  └──.streamlit
+│     └──config.toml
+├──Server                       # Backend
+│  ├──server.py                 # server main entry file
+│  ├──Routers
 │  |  └── stock.py        
 │  └──Repositories
-│     └── stock.py        # Data Fetching
+│     └── stock.py
 └── requirements.txt
 ````
 

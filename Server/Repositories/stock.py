@@ -1,4 +1,4 @@
-# this file is responsible for the functinality of getting stock data
+# this file is responsible for the functinality of stock data fetching and returning it
 
 import pandas as pd
 import numpy as np

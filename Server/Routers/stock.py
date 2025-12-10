@@ -1,4 +1,4 @@
-# this is the router for handling requests related to reports (only handling requests)
+# this is the router for handling requests related to stock data fetching (only handling requests, not fetching the data)
 # the funcions that are responsible for doing what the user wanted are in the Repository folder
 
 from fastapi import APIRouter, Depends, status, Response
