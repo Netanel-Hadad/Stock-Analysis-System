@@ -62,8 +62,7 @@ streamlit run main_page.py
 The application will open automatically in your browser (usually at http://localhost:8501).
 
 ## 📷 Screenshots
-<img width="716" height="437" alt="Screenshot 2025-12-05 141844" src="https://github.com/user-attachments/assets/62d96ce5-e758-4f3e-8795-d9fb9dd0cac1" />
 
-<img width="1893" height="906" alt="Screenshot 2025-12-05 141657" src="https://github.com/user-attachments/assets/2d3e86ed-450f-4c17-9536-68076a0ff44f" />
+<img width="1794" height="943" alt="Screenshot 2025-12-12 142850" src="https://github.com/user-attachments/assets/0d566bff-d847-4493-8749-392926a0565c" />
 
-<img width="1887" height="902" alt="Screenshot 2025-12-05 141733" src="https://github.com/user-attachments/assets/99adf668-658e-4495-8b2b-874162630cb9" />
+<img width="1895" height="936" alt="Screenshot 2025-12-12 142930" src="https://github.com/user-attachments/assets/6e5c04f3-e46e-406f-a543-a7b749f84521" />
