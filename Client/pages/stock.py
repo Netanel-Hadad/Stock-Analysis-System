@@ -32,7 +32,7 @@ if st.button('Load stock information'):
     # get the stock info as a json string from the server
     url = f"{SERVER_PATH}/stock/{symbol}"
     headers = {'Content-Type': 'application/json'}
-    params = {"startDate": startDate, "endDate": endDate, "sample": sample}
+    params = {"startDate": startDate, "endDate": endDate}
     response = requests.get(url, headers=headers, params=params)
     # convert json string to json
     dataJson = response.json()
@@ -48,6 +48,6 @@ if st.button('Load stock information'):
     with generalTab:
         general.show(data)
     with chartTab:
-        chart.show(data)
+        chart.show(data, sample)
     with dataTab:
         dt.show(data)

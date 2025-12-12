@@ -8,7 +8,12 @@ from plotly.subplots import make_subplots
 VOLUME_BAR_COLOR_RGBA = "(128,128,128,0.5)" # grey
 
 # called from the stock page file, this will show the 'Chart' tab widgets
-def show(data):
+def show(data, sample):
+
+    # resample to daily/weekly/monthly/yearly data, taking the last day of each period
+    data = data.resample(sample).last()
+    data = data.dropna()
+
     # creating the charts
     candleSticks = go.Candlestick(x=data.index,
                 open=data['Open'],
