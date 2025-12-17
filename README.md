@@ -63,7 +63,7 @@ The application will open automatically in your browser (usually at http://local
 
 ## 📷 Screenshots
 
-<img width="1794" height="943" alt="Screenshot 2025-12-12 142850" src="https://github.com/user-attachments/assets/0d566bff-d847-4493-8749-392926a0565c" />
+<img width="1895" height="928" alt="Screenshot 2025-12-17 213132" src="https://github.com/user-attachments/assets/7ddf2249-868b-4b4f-b187-3e6e2807b00a" />
 
 <img width="1896" height="928" alt="Screenshot 2025-12-15 221645" src="https://github.com/user-attachments/assets/56b21417-cbb5-4cfc-a238-5a5c07a85672" />
 
