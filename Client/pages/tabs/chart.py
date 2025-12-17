@@ -78,7 +78,7 @@ def show(data, sample):
         line=dict(color=PRICE_AVERAGE_LINE_COLOR, width=1)
     )
 
-    # creating an average volume line using similar to the way we did the average close price
+    # creating an average volume line similar to the way we did the average close price line
     volumeAverage = data['Volume'].rolling(window = VOLUME_AVERAGE_WINDOW_SIZE).mean()
     volumeAverageLine = go.Scatter(
         x=volumeAverage.index,
@@ -106,7 +106,7 @@ def show(data, sample):
         title="",
         height=500,
         # hide Plotly scrolling minimap below the price chart
-        xaxis={"rangeslider": {"visible": True}},
+        xaxis={"rangeslider": {"visible": False}},
     )
     fig.update_yaxes(title="Price", secondary_y=True, showgrid=True)
     fig.update_yaxes(title="Volume", secondary_y=False, showgrid=False)

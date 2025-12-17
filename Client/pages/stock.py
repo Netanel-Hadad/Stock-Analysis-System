@@ -22,7 +22,7 @@ st.title("Stock information (USD)")
 col1, col2 = st.columns(2)
 with col1:
     symbol = st.text_input("Symbol:", placeholder="")
-    startDate = st.date_input("Start Date:", datetime.date(2024, 1, 1), format="YYYY.MM.DD")
+    startDate = st.date_input("Start Date:", datetime.date(2020, 1, 1), format="YYYY.MM.DD")
 with col2:
     sample = st.selectbox("Sample:", ("D", "W", "M", "Y"))
     endDate = st.date_input("End Date:",     datetime.date.today(), format="YYYY.MM.DD")

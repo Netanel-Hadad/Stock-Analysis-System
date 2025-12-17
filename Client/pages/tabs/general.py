@@ -9,8 +9,18 @@ from pandas.tseries.offsets import DateOffset
 
 # called from the stock page file, this will show the 'Data' tab widgets
 def show(data): 
-    # the make the data look cleaner and more readable,
-    # we seperate the text and the values into diffrent columns
+
+    # ROI container
+    ROIRow = st.container(horizontal=True)
+    with ROIRow:
+        st.metric("1 Day",    "", str(getROI(data, 1))+'%',   border=True)
+        st.metric("1 Week",   "", str(getROI(data, 7))+'%',   border=True)
+        st.metric("1 Month",  "", str(getROI(data, 30))+'%',  border=True)
+        st.metric("6 Months", "", str(getROI(data, 180))+'%', border=True)
+        st.metric("1 Year",   "", str(getROI(data, 365))+'%', border=True)
+
+    # to make the data look cleaner and more readable,
+    # we seperate the text and the values into diffrent columns.
     # to make the text and the values in the same line, make sure that the st.write commands
     # for the text and the values in the diffrent columns are in the same order
     textCol, valuesCol = st.columns(2)
@@ -18,16 +28,14 @@ def show(data):
         st.write("Prev. Close:")
         st.write("Day's Range:")
         st.write("52 Weeks Range:")
-        st.write("1 Year ROI:")
     with valuesCol:
         st.write(str(data.head(1).Close.values[0]))
         st.write(str(data.head(1).Low.values[0]) + " - " + str(data.head(1).High.values[0]))
         st.write(get52WeeksRange(data))
-        st.write(str(getROI(data)) + "%")
 
 # calculate stock current ROI
-def getROI(data):
-    costOfInvesment = data.shift(-365)['Close'].values[0]
+def getROI(data, days):
+    costOfInvesment = data.shift(-days)['Close'].values[0]
     netProfit = data['Close'].values[0] - costOfInvesment
     ROI = 100 * netProfit / costOfInvesment 
     # round the value and return it with only 2 digits after the dot
